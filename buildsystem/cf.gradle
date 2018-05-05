@@ -3,7 +3,7 @@ ext {
     //android
     android = [
             compileSdkVersion: 26,
-            buildToolsVersion: "26.0.2",
+            buildToolsVersion: "27.0.3",
             applicationId    : "com.yuxie.smsbomb",
             minSdkVersion    : 18,
             targetSdkVersion : 23,
@@ -21,7 +21,9 @@ ext {
     ]
 
     //Libraries variable
-    supportv_Verion = '26.0.2'
+    supportv_Verion = '27.0.2'
+
+
 
     rxjava_Version = '1.1.9'
     rxandroid_Version = '1.2.1'
