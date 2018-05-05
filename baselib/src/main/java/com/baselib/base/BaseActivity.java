@@ -39,7 +39,6 @@ import rx.Subscription;
 
 /**
  * 基类
- * Created by liuhuaqian on 2017/9/5.
  */
 
 public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends AutoLayoutActivity {
@@ -58,7 +57,7 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         context = this;
         mRxManager = new RxManager();
         onBeforeSetContentView();
-        if (getLayoutId()!=0){
+        if (getLayoutId() != 0) {
             setContentView(getLayoutId());
         }
 

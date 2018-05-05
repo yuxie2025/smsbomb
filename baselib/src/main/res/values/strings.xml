@@ -30,10 +30,4 @@
 
     <!--TakePhoto-->
 
-    <!--腾讯Bugly初始化 AppId-->
-    <string name="bugly_app_id">9ea9dc4b46</string>
-    <!--微信支付,分享,登录 AppId-->
-    <string name="wx_app_id">wx9d55a4dc0d12ccc5</string>
-
-
 </resources>

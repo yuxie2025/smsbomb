@@ -5,10 +5,12 @@ import android.bluetooth.BluetoothManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.baselib.baseapp.BaseApplication;
 import com.baselib.utilcode.util.ActivityUtils;
@@ -223,6 +225,7 @@ public class CommonUtils {
 
     /**
      * 是否是发布版
+     *
      * @return
      */
     public static boolean isRelease() {
@@ -306,6 +309,19 @@ public class CommonUtils {
             BaseApplication.getAppContext().startActivity(intent);
 
         } catch (Exception e) {
+        }
+    }
+
+    //不同的类型要区别获取，以下是字符串类型的
+    public static String getAppMetaDataString(Context context, String metaName) {
+        try {
+            //application标签下用getApplicationinfo，如果是activity下的用getActivityInfo
+            String value = context.getPackageManager()
+                    .getApplicationInfo(context.getApplicationContext().getPackageName(), PackageManager.GET_META_DATA)
+                    .metaData.getString(metaName, "");
+            return value;
+        } catch (PackageManager.NameNotFoundException e) {
+            return "";
         }
     }
 

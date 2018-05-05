@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 
 def androidCf = rootProject.ext.android
 
+def appid = rootProject.ext.appid
+
 android {
     compileSdkVersion androidCf.compileSdkVersion
     buildToolsVersion androidCf.buildToolsVersion
@@ -14,6 +16,17 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
+        manifestPlaceholders = [
+                JPUSH_PKGNAME           : androidCf.applicationId,
+                JPUSH_APPKEY            : "425522f68290bf67f1f390c9", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL           : "developer-default", //暂时填写默认值即可.
+                UMENG_APPKEY            : "5a4ae7c0b27b0a3aab000044",//友盟
+                UMENG_CHANNEL           : "Channel ID",//友盟
+                "com.amap.api.v2.apikey": "caa67d9f01219028370158753e1efce0",//设置高德Key
+                "bugly_app_id"          : appid.bugly_app_id,
+                "wx_app_id"             : appid.wx_app_id
+        ]
+
         //配置支持java 1.8
         compileOptions {
             targetCompatibility JavaVersion.VERSION_1_8
@@ -23,14 +36,7 @@ android {
         //使用butterknife:7.0.1需要添加,如下配置必须放在主模块中
         javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
 
-//        manifestPlaceholders = [
-//                JPUSH_PKGNAME           : androidCf.applicationId,
-//                JPUSH_APPKEY            : "425522f68290bf67f1f390c9", //JPush上注册的包名对应的appkey.
-//                JPUSH_CHANNEL           : "developer-default", //暂时填写默认值即可.
-//                UMENG_APPKEY            : "5a4ae7c0b27b0a3aab000044",//友盟
-//                UMENG_CHANNEL           : "Channel ID",//友盟
-//                "com.amap.api.v2.apikey": "caa67d9f01219028370158753e1efce0",//设置高德Key
-//        ]
+
     }
     buildTypes {
         release {
@@ -128,7 +134,6 @@ dependencies {
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:2.3.0"
 
 //    -----以上是必选
-
 
 //    -----以下是可选
     // 图像剪切

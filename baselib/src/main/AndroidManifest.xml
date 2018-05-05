@@ -56,6 +56,15 @@
             android:name="design_height"
             android:value="1334"></meta-data>
 
+        <meta-data
+            android:name="bugly_app_id"
+            android:value="${bugly_app_id}"></meta-data>
+
+        <meta-data
+            android:name="wx_app_id"
+            android:value="${wx_app_id}"></meta-data>
+
+
         <!-- umengAppKey，replace to yours -->
         <!-- 友盟 -->
         <!--友盟ID-->
@@ -67,20 +76,6 @@
         <!--android:value="Channel ID" />-->
         <!-- Channel ID 替换为您应用的推广渠道名称，channel id自定义。如:Wandoujia -->
 
-        <!--支付宝-->
-        <activity
-            android:name="com.alipay.sdk.app.H5PayActivity"
-            android:configChanges="orientation|keyboardHidden|navigation|screenSize"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
-        <activity
-            android:name="com.alipay.sdk.app.H5AuthActivity"
-            android:configChanges="orientation|keyboardHidden|navigation"
-            android:exported="false"
-            android:screenOrientation="behind"
-            android:windowSoftInputMode="adjustResize|stateHidden"></activity>
-        <!--支付宝-->
 
         <activity
             android:name=".takephoto.app.SelectPhotoActivity"

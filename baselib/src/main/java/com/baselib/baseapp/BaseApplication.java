@@ -39,7 +39,8 @@ public class BaseApplication extends Application {
             LogUtils.logInit(true);//日志
         }
         //腾讯Bugly初始化
-        CrashReport.initCrashReport(getApplicationContext(), getString(R.string.bugly_app_id), false);
+        String buglyAppId = CommonUtils.getAppMetaDataString(this, "bugly_app_id");
+        CrashReport.initCrashReport(getApplicationContext(), buglyAppId, false);
 
     }
 
@@ -66,6 +67,7 @@ public class BaseApplication extends Application {
         super.attachBaseContext(base);
         MultiDex.install(this);
     }
+
 
 }
 
