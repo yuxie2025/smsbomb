@@ -24,11 +24,11 @@ android {
 }
 
 dependencies {
-    testApi fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testApi 'junit:junit:4.12'
-    testApi 'com.android.support.test:runner:1.0.2'
-    testApi 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'com.android.support.test:runner:1.0.2'
+    testImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
 // 使用说明，需要在build.gradle 中添加插件
 //    dependencies {
