@@ -17,15 +17,19 @@ android {
         multiDexEnabled true
 
         manifestPlaceholders = [
-                JPUSH_PKGNAME           : androidCf.applicationId,
-                JPUSH_APPKEY            : "425522f68290bf67f1f390c9", //JPush上注册的包名对应的appkey.
-                JPUSH_CHANNEL           : "developer-default", //暂时填写默认值即可.
-                UMENG_APPKEY            : "5a4ae7c0b27b0a3aab000044",//友盟
-                UMENG_CHANNEL           : "Channel ID",//友盟
-                "com.amap.api.v2.apikey": "caa67d9f01219028370158753e1efce0",//设置高德Key
-                "bugly_app_id"          : appid.bugly_app_id,
-                "wx_app_id"             : appid.wx_app_id
+                "bugly_app_id"          : appid.bugly_app_id
         ]
+
+//        manifestPlaceholders = [
+//                JPUSH_PKGNAME           : androidCf.applicationId,
+//                JPUSH_APPKEY            : "425522f68290bf67f1f390c9", //JPush上注册的包名对应的appkey.
+//                JPUSH_CHANNEL           : "developer-default", //暂时填写默认值即可.
+//                UMENG_APPKEY            : "5a4ae7c0b27b0a3aab000044",//友盟
+//                UMENG_CHANNEL           : "Channel ID",//友盟
+//                "com.amap.api.v2.apikey": "caa67d9f01219028370158753e1efce0",//设置高德Key
+//                "bugly_app_id"          : appid.bugly_app_id,
+//                "wx_app_id"             : appid.wx_app_id
+//        ]
 
         //配置支持java 1.8
         compileOptions {
@@ -132,6 +136,9 @@ dependencies {
     }
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.2.0"
 
+    //ui库
+    api 'com.qmuiteam:qmui:1.0.6'
+
 //    -----以上是必选
 
 //    -----以下是可选
@@ -156,7 +163,10 @@ dependencies {
     //    api 'com.github.PhilJay:MPAndroidChart:v3.0.2'
 
     //二维码扫描和生成
-    // compile 'cn.yipianfengye.android:zxing-library:2.2'
+    // api 'cn.yipianfengye.android:zxing-library:2.2'
+
+    //popup
+    api 'com.github.zyyoona7:EasyPopup:1.0.2'
 
 
 }

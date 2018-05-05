@@ -56,6 +56,7 @@ ext {
             gridlayout                  : "com.android.support:gridlayout-v7:${supportv_Verion}",
             recyclerview                : "com.android.support:recyclerview-v7:${supportv_Verion}",
             cardview                    : "com.android.support:cardview-v7:${supportv_Verion}",
+            annotations                 : "com.android.support:support-annotations:${supportv_Verion}",
             rxjava                      : "io.reactivex:rxjava:${rxjava_Version}",
             rxandroid                   : "io.reactivex:rxandroid:${rxandroid_Version}",
             rxbinding                   : "com.jakewharton.rxbinding2:rxbinding:${rxbinding_Version}",

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.baselib">
-    //地图SDK（包含其搜索功能）需要的基础权限
 
+    <!--//地图SDK（包含其搜索功能）需要的基础权限-->
     <!--允许程序打开网络套接字-->
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -21,14 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-     
-
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
-    <uses-permission android:name="android.permission.READ_LOGS" />
-
 
     <application
         android:allowBackup="true"
@@ -52,6 +45,7 @@
         <meta-data
             android:name="design_width"
             android:value="750"></meta-data>
+
         <meta-data
             android:name="design_height"
             android:value="1334"></meta-data>
@@ -59,11 +53,6 @@
         <meta-data
             android:name="bugly_app_id"
             android:value="${bugly_app_id}"></meta-data>
-
-        <meta-data
-            android:name="wx_app_id"
-            android:value="${wx_app_id}"></meta-data>
-
 
         <!-- umengAppKey，replace to yours -->
         <!-- 友盟 -->
@@ -76,11 +65,9 @@
         <!--android:value="Channel ID" />-->
         <!-- Channel ID 替换为您应用的推广渠道名称，channel id自定义。如:Wandoujia -->
 
-
         <activity
             android:name=".takephoto.app.SelectPhotoActivity"
             android:theme="@style/AlertNoActionBar"></activity>
-
 
     </application>
 
