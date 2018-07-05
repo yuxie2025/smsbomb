@@ -3,6 +3,7 @@ apply plugin: 'org.greenrobot.greendao'
 
 def androidCf = rootProject.ext.android
 android {
+    buildToolsVersion androidCf.buildToolsVersion
     compileSdkVersion androidCf.compileSdkVersion
 
     defaultConfig {
@@ -20,7 +21,6 @@ android {
         }
     }
 
-    buildToolsVersion '27.0.3'
 }
 
 dependencies {
@@ -44,8 +44,5 @@ dependencies {
 
     // 使用数据库升级辅助GreenDaoUpgradeHelper时添加
 //    implementation 'com.github.yuweiguocn:GreenDaoUpgradeHelper:v1.2.0'
-
-
-
 
 }

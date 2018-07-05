@@ -5,8 +5,8 @@ def androidCf = rootProject.ext.android
 def appid = rootProject.ext.appid
 
 android {
-    compileSdkVersion androidCf.compileSdkVersion
     buildToolsVersion androidCf.buildToolsVersion
+    compileSdkVersion androidCf.compileSdkVersion
 
     defaultConfig {
         minSdkVersion androidCf.minSdkVersion

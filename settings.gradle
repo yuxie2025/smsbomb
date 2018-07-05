@@ -1,1 +1,1 @@
-include ':app', ':baselib', ':amap_lib', ':greendao_lib'
+include ':app', ':baselib', ':greendao_lib'
