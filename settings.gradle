@@ -1,1 +1,1 @@
-include ':app', ':baselib', ':greendao_lib'
+include ':app', ':apkupdate_lib'

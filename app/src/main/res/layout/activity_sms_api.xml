@@ -1,53 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    style="@style/MM.BaseLlVertical"
+    android:background="#e5e5e5">
 
     <include layout="@layout/navigation_bar" />
 
     <include layout="@layout/line_view" />
 
-    <LinearLayout
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/phone_number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <android.support.v7.widget.AppCompatEditText
-            android:id="@+id/phone_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="目标号码"
-            android:text="15622145861"
-            android:inputType="number"
-            android:singleLine="true" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="开火" />
-
-        <android.support.v7.widget.AppCompatButton
-            android:id="@+id/stop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="停火" />
-
-    </LinearLayout>
+        android:layout_height="45dp"
+        android:layout_margin="5dp"
+        android:hint="目标号码"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="#333"
+        android:textSize="14sp" />
 
     <android.support.v7.widget.AppCompatButton
-        android:id="@+id/add_sms_api"
+        android:id="@+id/start"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="添加api" />
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_ripple"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:text="开火"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <android.support.v7.widget.AppCompatButton
+        android:id="@+id/stop"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="40dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_ripple"
+        android:gravity="center"
+        android:text="停火"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:qmui_radius="3dp" />
+
+    <ScrollView
+        android:id="@+id/sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@drawable/stroke_bg">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textColor="#333"
+            android:textSize="14sp" />
+    </ScrollView>
+
 
 </LinearLayout>

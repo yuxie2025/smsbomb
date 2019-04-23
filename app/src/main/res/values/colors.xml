@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#3b9dff</color>
+    <color name="colorPrimaryDark">#3b9dff</color>
+    <color name="colorAccent">#3b9dff</color>
+
+    <color name="windowBackground">#ffffff</color>
+
+    <color name="main_color">#3b9dff</color>
+
+    <color name="textColorPrimary">#222222</color>
+
+    <!--title字体颜色-->
+    <color name="title_color">#ffffff</color>
+    <!--navigation_bar背景-->
+    <color name="navigation_bar_bg">#3b9dff</color>
+    <!--状态栏颜色-->
+    <color name="status_bar_color">#3b9dff</color>
+
+    <color name="bg_color_gray">#eeeeee</color>
+
+
+    <color name="text_color_green">#00ff00</color>
+    <color name="text_color_red">#ff0000</color>
+
 </resources>
