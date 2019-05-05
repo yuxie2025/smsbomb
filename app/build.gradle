@@ -23,11 +23,39 @@ android {
         }
 
     }
+
+    signingConfigs {
+        release {
+            storeFile file("keystore/project.jks")
+            storePassword "project"
+            keyAlias "projectAPK"
+            keyPassword "project"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
+            shrinkResources false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            // 输出apk名称为great_v1.0_wandoujia.apk
+            def fileName = "douyin.apk"
+            outputFileName = fileName
+        }
+    }
+
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+        baseline file("lint-baseline.xml")
     }
 }
 
