@@ -7,10 +7,10 @@
 
 [短信炸弹](https://yuxie2025.github.io/download/smsbomb.apk) 下载地址:
 
-# https://yuxie2025.github.io/download/smsbomb.apk
+https://yuxie2025.github.io/download/smsbomb.apk
 
-![下载链接](https://raw.githubusercontent.com/yuxie2025/smsbomb/blob/app/img/download_qr.png)
+![下载链接](https://raw.githubusercontent.com/yuxie2025/smsbomb/master/app/img/download_qr.png)
 
 app截图:
 
-![app主页截图](https://raw.githubusercontent.com/yuxie2025/smsbomb/blob/app/img/app_screen.png)
+![app主页截图](https://raw.githubusercontent.com/yuxie2025/smsbomb/master/app/img/app_screen.png)
