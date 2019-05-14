@@ -17,6 +17,7 @@ import com.baselib.baserx.RxSchedulers;
 import com.baselib.baserx.RxSubscriber;
 import com.baselib.uitls.CommonUtils;
 import com.blankj.utilcode.util.AppUtils;
+import com.blankj.utilcode.util.KeyboardUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -78,10 +79,10 @@ public class SmsApiActivity extends BaseActivity {
 
     @OnClick({R.id.start, R.id.stop})
     public void onViewClicked(View view) {
+        KeyboardUtils.hideSoftInput(view);
         switch (view.getId()) {
             case R.id.start:
                 //失去焦点
-                phoneNumber.setFocusable(false);
                 String phone = CommonUtils.getViewContent(phoneNumber);
                 if (TextUtils.isEmpty(phone) || phone.length() != 11) {
                     ToastUtils.showShort("请输入目标手机号");

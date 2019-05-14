@@ -48,7 +48,7 @@ android {
     applicationVariants.all { variant ->
         variant.outputs.all {
             // 输出apk名称为great_v1.0_wandoujia.apk
-            def fileName = "douyin.apk"
+            def fileName = "smsbomb.apk"
             outputFileName = fileName
         }
     }
