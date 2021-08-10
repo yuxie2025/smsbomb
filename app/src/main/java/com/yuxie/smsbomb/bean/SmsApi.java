@@ -13,25 +13,11 @@ public class SmsApi implements Serializable {
     private Long id;
     private String type;
     private String url;
-    private String parameterBefore;
-    private String parameterAfter;
+    private String body;
     private String resultOk;
 
-    public SmsApi(Long id, String type, String url, String parameterBefore,
-                  String parameterAfter, String resultOk) {
-        this.id = id;
-        this.type = type;
-        this.url = url;
-        this.parameterBefore = parameterBefore;
-        this.parameterAfter = parameterAfter;
-        this.resultOk = resultOk;
-    }
-
-    public SmsApi() {
-    }
-
     public Long getId() {
-        return this.id;
+        return id;
     }
 
     public void setId(Long id) {
@@ -39,7 +25,7 @@ public class SmsApi implements Serializable {
     }
 
     public String getType() {
-        return this.type;
+        return type;
     }
 
     public void setType(String type) {
@@ -47,31 +33,23 @@ public class SmsApi implements Serializable {
     }
 
     public String getUrl() {
-        return this.url;
+        return url;
     }
 
     public void setUrl(String url) {
         this.url = url;
     }
 
-    public String getParameterBefore() {
-        return this.parameterBefore;
+    public String getBody() {
+        return body;
     }
 
-    public void setParameterBefore(String parameterBefore) {
-        this.parameterBefore = parameterBefore;
-    }
-
-    public String getParameterAfter() {
-        return this.parameterAfter;
-    }
-
-    public void setParameterAfter(String parameterAfter) {
-        this.parameterAfter = parameterAfter;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public String getResultOk() {
-        return this.resultOk;
+        return resultOk;
     }
 
     public void setResultOk(String resultOk) {
@@ -84,8 +62,7 @@ public class SmsApi implements Serializable {
                 "id=" + id +
                 ", type='" + type + '\'' +
                 ", url='" + url + '\'' +
-                ", parameterBefore='" + parameterBefore + '\'' +
-                ", parameterAfter='" + parameterAfter + '\'' +
+                ", body='" + body + '\'' +
                 ", resultOk='" + resultOk + '\'' +
                 '}';
     }

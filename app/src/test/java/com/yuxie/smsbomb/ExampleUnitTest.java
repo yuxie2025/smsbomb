@@ -14,4 +14,12 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void test() {
+        String str = "{\"phone\":\"target_phone\",\"countryCode\":\"86\",\"type\":\"authenticode\"}";
+        String replaceAll = str.replaceAll("target_phone", "15622145861");
+        System.out.println("str:" + str);
+        System.out.println("replaceAll:" + replaceAll);
+    }
 }

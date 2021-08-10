@@ -5,12 +5,12 @@
 
 安装包下载地址:
 
-[短信炸弹](https://yuxie2025.github.io/download/smsbomb.apk) 下载地址:
+[短信炸弹](https://gitee.com/yuxie2025/yuxie/blob/master/download/smsbomb.apk) 下载地址:
 
-https://yuxie2025.github.io/download/smsbomb.apk
+https://gitee.com/yuxie2025/yuxie/blob/master/download/smsbomb.apk
 
-![下载链接](https://raw.githubusercontent.com/yuxie2025/smsbomb/master/app/img/download_qr.png)
+![下载链接](https://gitee.com/yuxie2025/yuxie/raw/master/download/download_qr.png)
 
 app截图:
 
-![app主页截图](https://raw.githubusercontent.com/yuxie2025/smsbomb/master/app/img/app_screen.png)
+![app主页截图](https://gitee.com/yuxie2025/yuxie/raw/master/download/smsbomb_app_screen.png)

