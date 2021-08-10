@@ -155,14 +155,6 @@
       "url": "http://wap.baima.com/index.php?d=api200&c=user&m=checkPoneIsRegister"
     },
     {
-      "id": 20,
-      "parameterAfter": "",
-      "parameterBefore": "message_type=1&token=&cityId=321&mobile=",
-      "resultOk": "\"success\":true",
-      "type": "post",
-      "url": "http://m.ehsy.com/uc/message/sendSmsByMobile.action"
-    },
-    {
       "id": 21,
       "parameterAfter": "",
       "parameterBefore": "mobile=",
@@ -265,14 +257,6 @@
       "resultOk": "发送成功",
       "type": "get",
       "url": "http://fof.simuwang.com/index.php"
-    },
-    {
-      "id": 34,
-      "parameterAfter": "",
-      "parameterBefore": "mobile=",
-      "resultOk": "true",
-      "type": "post",
-      "url": "http://app.syxwnet.com/?app=member&controller=index&action=sendMobileMessage"
     },
     {
       "id": 36,
@@ -577,14 +561,6 @@
       "resultOk": "0",
       "type": "get",
       "url": "https://reg.ytl.yottachain.io/YTL/public/index.php/index/User/sendPhoneCode"
-    },
-    {
-      "id": 77,
-      "parameterAfter": "",
-      "parameterBefore": "phone=",
-      "resultOk": "1",
-      "type": "post",
-      "url": "http://longwanapp.xspp.com.cn/index/Login/send"
     },
     {
       "id": 78,
