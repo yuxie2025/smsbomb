@@ -40,7 +40,7 @@ public class CRequest {
      * @param strURL url地址
      * @return url请求参数部分
      */
-    private static String TruncateUrlPage(String strURL) {
+    public static String TruncateUrlPage(String strURL) {
         String strAllParam = null;
         String[] arrSplit = null;
 

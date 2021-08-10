@@ -29,14 +29,17 @@ public interface ServerApiService {
     @GET("")
     Observable<String> getUrl(@Url String url);
 
+
+//    https://raw.githubusercontent.com/yuxie2025/smsbomb/master/
     /**
      * 升级app
      */
-    @GET("/download/updateSmsBombApp.json")
+    @GET("/yuxie2025/smsbomb/master//download/updateSmsBombApp.json")
     Observable<BaseRespose<ApkVersionModel>>
     updateApp();
 
-    @GET("/download/smsApi.json")
+
+    @GET("/yuxie2025/smsbomb/master//download/smsApi.json")
     Observable<BaseRespose<List<SmsApi>>>
     smsApi();
 

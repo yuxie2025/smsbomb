@@ -18,6 +18,7 @@ import com.baselib.baserx.RxSubscriber;
 import com.baselib.uitls.CommonUtils;
 import com.blankj.utilcode.util.AppUtils;
 import com.blankj.utilcode.util.KeyboardUtils;
+import com.blankj.utilcode.util.LogUtils;
 import com.blankj.utilcode.util.ToastUtils;
 import com.jaeger.library.StatusBarUtil;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -163,13 +164,21 @@ public class SmsApiActivity extends BaseActivity {
             return;
         }
 
-        String body = smsApi.getParameterBefore() + phoneNumber + smsApi.getParameterAfter();
         String url = smsApi.getUrl();
+
+        String body = "";
+
+        if (url.contains("target_phone")) {
+            url = url.replace("target_phone", phoneNumber);
+            body = CRequest.TruncateUrlPage(url);
+        } else {
+            body = smsApi.getParameterBefore() + phoneNumber + smsApi.getParameterAfter();
+        }
 
         ServerApiService serverApiService = ServerApi.getInstance(host);
 
-        Map<String, String> options = CRequest.URLRequestParameter(body);
         if ("post".equals(smsApi.getType())) {
+            Map<String, String> options = CRequest.URLRequestParameter(body);
             mRxManager.add(serverApiService.getSmsApi(url, options).subscribeOn(Schedulers.io())
                     .subscribe(new MySubscriber(phoneNumber, host, smsApi)));
         } else {
@@ -207,6 +216,7 @@ public class SmsApiActivity extends BaseActivity {
         @Override
         public void onNext(Result<String> stringResult) {
             String body = stringResult.response().body();
+            LogUtils.i("url:" + url + ",body:" + body);
             if (!TextUtils.isEmpty(body) && body.contains(smsApi.getResultOk())) {
                 ++successTotol;
                 msg("成功: " + url);
