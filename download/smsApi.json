@@ -27,14 +27,6 @@
       "url": "http://api.michun.fallchat.com/api/code/get"
     },
     {
-      "id": 4,
-      "parameterAfter": "",
-      "parameterBefore": "mobile=",
-      "resultOk": "\"value\":\"0\"",
-      "type": "post",
-      "url": "http://app.yuehui.163.com/app/mobisendcode.do"
-    },
-    {
       "id": 5,
       "parameterAfter": "",
       "parameterBefore": "myuid=0&reqTime=20160101010101&signature=23358b760933d571efd25c2f4be10556&mobile=",
@@ -299,14 +291,6 @@
       "url": "http://www.ci4a.cn/index.php?m=member&c=content&a=mobile_code"
     },
     {
-      "id": 41,
-      "parameterAfter": "",
-      "parameterBefore": "acc=15622145861&type=6&rnd=0.44647784629374976&tel=",
-      "resultOk": "手机验证码发送成功！",
-      "type": "post",
-      "url": "http://account.limsam.cn/ucenter/mobilebind/ajaxgetcode.aspx"
-    },
-    {
       "id": 42,
       "parameterAfter": "",
       "parameterBefore": "telphone=",
@@ -347,44 +331,12 @@
       "url": "http://www.ad1024.com/site/send-register-verify-code"
     },
     {
-      "id": 47,
-      "parameterAfter": "",
-      "parameterBefore": "flag=createVeriCode&_=1525053040106&tel=",
-      "resultOk": "success",
-      "type": "post",
-      "url": "http://member.21-sun.com/tools/ajax.jsp"
-    },
-    {
-      "id": 48,
-      "parameterAfter": "&MOBILENUM=15622145861",
-      "parameterBefore": "mobile=",
-      "resultOk": "本次请求成功",
-      "type": "post",
-      "url": "http://ggfw.wuxi.gov.cn/wx_portal/user/service/User.checkMobile.json"
-    },
-    {
-      "id": 49,
-      "parameterAfter": "",
-      "parameterBefore": "t=1&mobile=",
-      "resultOk": "",
-      "type": "get",
-      "url": "http://www.ejtong.cn/cop5/phone.asp"
-    },
-    {
       "id": 50,
       "parameterAfter": "",
       "parameterBefore": "formhash=972eee2ac80f258a25384bc2e9733c96&mobile=",
       "resultOk": "\"status\":1",
       "type": "post",
       "url": "http://www.lequ.com/Public/sendsms"
-    },
-    {
-      "id": 51,
-      "parameterAfter": "",
-      "parameterBefore": "rnd=1525054197.628&mobile=",
-      "resultOk": "success",
-      "type": "post",
-      "url": "http://www.yifatong.com/Customers/getsms"
     },
     {
       "id": 52,
@@ -395,36 +347,12 @@
       "url": "http://www.12123.com/api/login/send.json"
     },
     {
-      "id": 53,
-      "parameterAfter": "",
-      "parameterBefore": "from=pc_bindphone&mobile=",
-      "resultOk": "\"code\":\"1\"",
-      "type": "post",
-      "url": "http://i.xafc.com/home/register/sendMsgCode"
-    },
-    {
-      "id": 54,
-      "parameterAfter": "",
-      "parameterBefore": "type=register&verify_mobile_code=2l1II48iO9&mobile=",
-      "resultOk": "短信发送成功",
-      "type": "post",
-      "url": "http://pcmall.chinayanghe.com/send_mcode.shtml"
-    },
-    {
       "id": 55,
       "parameterAfter": "",
       "parameterBefore": "phone=",
       "resultOk": "1",
       "type": "post",
       "url": "http://oa.lehome114.com/action/sendcode"
-    },
-    {
-      "id": 56,
-      "parameterAfter": "",
-      "parameterBefore": "loginname=",
-      "resultOk": "",
-      "type": "post",
-      "url": "http://www.gaokaoer.cn/Index/Sms.html"
     },
     {
       "id": 57,
@@ -449,14 +377,6 @@
       "resultOk": "200",
       "type": "get",
       "url": "https://uac.10010.com/portal/Service/SendMSG"
-    },
-    {
-      "id": 61,
-      "parameterAfter": "",
-      "parameterBefore": "isH5=1&businessid=2&mobile=",
-      "resultOk": "result",
-      "type": "get",
-      "url": "http://m.cmvideo.cn/sendMiguMsgCode.msp"
     },
     {
       "id": 62,
@@ -521,14 +441,6 @@
       "resultOk": "200",
       "type": "post",
       "url": "https://time.000111.cn/v2/register/check_mobile"
-    },
-    {
-      "id": 71,
-      "parameterAfter": "",
-      "parameterBefore": "phone=",
-      "resultOk": "0",
-      "type": "get",
-      "url": "http://teacher.ets100.com/code/send"
     },
     {
       "id": 72,
