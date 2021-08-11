@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 import com.apkupdate.UpdateActivity;
 import com.apkupdate.widget.ApkVersionModel;
@@ -89,16 +90,20 @@ public class SmsApiActivity extends BaseActivity {
         KeyboardUtils.hideSoftInput(view);
         switch (view.getId()) {
             case R.id.start:
+                if (CommonUtils.isDoubleClick(2000)) {
+                    return;
+                }
                 //失去焦点
-                String phone = CommonUtils.getViewContent(phoneNumber);
+                String phone = phoneNumber.getText().toString();
                 if (TextUtils.isEmpty(phone) || phone.length() != 11) {
-                    ToastUtils.showShort("请输入目标手机号");
+                    Toast.makeText(mContext, "请输入目标手机号", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 getApi(phone);
                 break;
             case R.id.stop:
                 isStop = true;
+                update();
                 break;
         }
     }
@@ -273,7 +278,6 @@ public class SmsApiActivity extends BaseActivity {
                 .subscribe(new RxSubscriber<BaseRespose<ApkVersionModel>>(mContext, false) {
                     @Override
                     protected void _onNext(BaseRespose<ApkVersionModel> baseRespose) {
-
                         double versionDouble = CommonUtils.string2Double(baseRespose.getData().getAppVersion());
                         String cVersionStr = AppUtils.getAppVersionName();
                         double cVersionDouble = CommonUtils.string2Double(cVersionStr);
@@ -284,7 +288,6 @@ public class SmsApiActivity extends BaseActivity {
 
                     @Override
                     protected void _onError(String message) {
-
                     }
                 }));
     }

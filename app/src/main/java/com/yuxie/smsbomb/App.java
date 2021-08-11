@@ -4,6 +4,8 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.baselib.baseapp.BaseApplication;
+import com.blankj.utilcode.util.ToastUtils;
+import com.blankj.utilcode.util.Utils;
 import com.tencent.bugly.crashreport.CrashReport;
 
 /**
@@ -18,6 +20,7 @@ public class App extends BaseApplication {
         super.onCreate();
         mContext = getApplicationContext();
         initData();
+        Utils.init(this);
     }
 
     private void initData() {

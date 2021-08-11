@@ -92,4 +92,18 @@ public class ApkVersionModel implements Serializable {
     public void setRemarks(String remarks) {
         this.remarks = remarks;
     }
+
+    @Override
+    public String toString() {
+        return "ApkVersionModel{" +
+                "appVersion='" + appVersion + '\'' +
+                ", releaseTime='" + releaseTime + '\'' +
+                ", releaseStatus='" + releaseStatus + '\'' +
+                ", id=" + id +
+                ", type='" + type + '\'' +
+                ", url='" + url + '\'' +
+                ", forceUpgrade='" + forceUpgrade + '\'' +
+                ", remarks='" + remarks + '\'' +
+                '}';
+    }
 }
